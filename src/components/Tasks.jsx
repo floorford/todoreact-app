@@ -16,6 +16,10 @@ class Tasks extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.onLoad();
+  }
+
   handleChange(e) {
     let input = e.target.value
     this.setState({
