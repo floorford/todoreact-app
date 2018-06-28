@@ -6,23 +6,40 @@ import Task from './Task'
 // shows a list of articles
 class Tasks extends Component {
   constructor (props) {
-      super(props);
-      this.handleSubmit=this.handleSubmit.bind(this);
+    super(props);
+
+    this.state = {
+      value: ""
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleChange(e) {
+    let input = e.target.value
+    this.setState({
+      value: input
+    })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    let data = this.state.value;
+    this.props.onSubmit(data);
+  }
 
   render() {
-    let { tasks, onSubmit } = this.props;
+    let { tasks } = this.props;
 
-    handleSubmit(e) {
-
-
-      this.props.onSubmit(data);
-    }
-    
     return(
       <React.Fragment>
-        <button onSubmit={ this.handleSubmit } class="btn btn-outline-success">Add</button>
+        <form onSubmit={ this.handleSubmit }>
+          <label htmlFor="task">Create a Task</label>
+          <input id="task" onChange={ this.handleChange }></input>
+          <button className="btn btn-outline-success">Add</button>
+        </form>
         { /* check there are articles to show */ }
         { tasks.length ?
           <ul className="list-group">
