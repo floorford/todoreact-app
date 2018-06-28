@@ -9,7 +9,7 @@ constructor(props) {
 
   this.state = {
     editing: false,
-    value: ""
+    value: this.props.task
   }
 
   this.handleChange = this.handleChange.bind(this);
@@ -20,7 +20,7 @@ constructor(props) {
 
   handleEdit() {
     this.setState({
-      editing: true
+      editing: true,
     })
   }
 
@@ -50,15 +50,14 @@ constructor(props) {
 
   render() {
     const { task } = this.props;
-    const { editing } = this.state;
+    const { editing, value } = this.state;
     return (
       // !article ? <FourOhFour /> : (
       <React.Fragment>
         { editing ?
           <form onSubmit={ this.handleSubmit }>
-            <label htmlFor="task">Task</label>
-            <input id="task" onChange={ this.handleChange } value={ task }></input>
-            <button>Update</button>
+            <input id="task" onChange={ this.handleChange } value={ value }></input>
+            <button className="btn btn-outline-info">Update</button>
           </form>
           :
           <p>{ task }</p> }

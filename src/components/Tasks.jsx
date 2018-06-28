@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 
-import Task from './Task'
+import Task from '../containers/Task'
 
 // shows a list of articles
 class Tasks extends Component {
@@ -52,7 +52,7 @@ class Tasks extends Component {
               <li className="list-group-item" key={ task.id }>
               { /* link to the task using its id */ }
                 {/* <Link to={ "/tasks/" + task.id }>{ task.title }</Link> */}
-                <Task task={ task.task } />
+                <Task task={ task.task } id={ task.id }/>
               </li>
             ))}
           </ul> :

@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 // import in the Tasks component
 import Tasks from "../components/Task";
 
-import { patchTask, patchTask, deleteTask } from "../data/actions/api";
+import { patchTask, patchTaskComplete, deleteTask } from "../data/actions/api";
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, {id}) => {
   return {
-    // onSubmit is a function which dispatches an api action "postTask"
-    onUpdate: data => dispatch(patchTask(data)),
+    // onUpdate is a function which dispatches an api action "patchTask"
+    onUpdate: data => dispatch(patchTask(data, id)),
   };
 };
 // connect up mapStateToProps with the Tasks component
