@@ -6,12 +6,12 @@ import Tasks from "../components/Task";
 
 import { patchTask, patchTaskComplete, deleteTask } from "../data/actions/api";
 
-const mapDispatchToProps = (dispatch, {id}) => {
+const mapDispatchToProps = (dispatch, {task}) => {
   return {
     // onUpdate is a function which dispatches an api action "patchTask"
-    onUpdate: data => dispatch(patchTask(data, id)),
-    onDelete: () => dispatch(deleteTask(id)),
-    onComplete: status => dispatch(patchTaskComplete(status, id)),
+    onUpdate: data => dispatch(patchTask(data, task.id)),
+    onDelete: () => dispatch(deleteTask(task.id)),
+    onComplete: status => dispatch(patchTaskComplete(status, task.id)),
   };
 };
 // connect up mapStateToProps with the Tasks component

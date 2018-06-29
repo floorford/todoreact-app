@@ -9,9 +9,10 @@ constructor(props) {
 
   this.state = {
     editing: false,
-    value: this.props.task,
-    completed: false
+    value: this.props.task.task,
+    completed: this.props.task.completed
   }
+  //is taking props from tasks component and setting it to value
 
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,15 +32,16 @@ constructor(props) {
     this.setState({
       value: input
     })
-  }
+  }//looks at hat the user types and saves it as value
 
   handleDelete(e) {
     this.props.onDelete();
   }
+  //these methods are doing soem logic and then passing through our methods from the container.
 
   handleSubmit(e) {
     e.preventDefault();
-
+    //taking whatever the user has typed and set it to data.
     let data = this.state.value;
     this.setState({
       editing: false
@@ -48,34 +50,32 @@ constructor(props) {
   }
 
   handleComplete(e) {
+    let complete = !this.state.completed //
+
     this.setState({
-      completed: !this.state.completed
+      completed: complete //toggles between the two options for completed and not completed and sets to state
     })
-    let complete = !this.state.completed
-    let status;
-    complete === true ? status = 1 : status = 0;
-    this.props.onComplete(status);
+
+    this.props.onComplete(complete);
   }
 
   render() {
     const { task } = this.props;
-    const { editing, value } = this.state;
+    const { editing, value, completed } = this.state;
 
-    let colour = "black"
-
-    this.state.completed === false ? colour = "black" : colour = "grey"
+    let colour = completed ? "grey" : "black";
 
     return (
       // !article ? <FourOhFour /> : (
       <React.Fragment>
-        <input onClick={ this.handleComplete } type="checkbox"></input>
+        <input onChange={ this.handleComplete } type="checkbox" checked={ completed }></input>
         { editing ?
           <form onSubmit={ this.handleSubmit }>
             <input id="task" onChange={ this.handleChange } value={ value }></input>
             <button className="btn btn-outline-info">Update</button>
           </form>
           :
-          <p style={{color: colour}}>{ task }</p> }
+          <p style={{color: colour}}>{ task.task }</p> }
         <button onClick={ this.handleDelete } className="btn btn-outline-danger">Delete</button>
         <button onClick={ this.handleEdit } className="btn btn-outline-warning">Edit</button>
       </React.Fragment>
