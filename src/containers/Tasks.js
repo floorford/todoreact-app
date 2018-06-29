@@ -6,8 +6,7 @@ import Tasks from "../components/Tasks";
 
 import { postTask, getTasks } from "../data/actions/api";
 
-// mapStateToProps is passed in the current state
-// it should return an object, which gets passed in as props to the connected component
+// We're taking the tasks array from the global state and assigning it to a taks property which will be passed to the tasks component through maps state to props.
 const mapStateToProps = state => {
   return {
     tasks: state.tasks,
@@ -17,8 +16,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     // onSubmit is a function which dispatches an api action "postTask"
+    //taking the data (the value of the input) and passing it into posttaks action
     onSubmit: data => dispatch(postTask(data)),
     onLoad: () => dispatch(getTasks()),
+    //dispatching get tasks api action
 
   };
 };

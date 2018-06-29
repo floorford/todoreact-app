@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-// import FourOhFour from "../FourOhFour";
-
-// if article isn't passed in, that means it's an invalid id, so show FourOhFour
 class Task extends Component {
 constructor(props) {
   super(props)
@@ -50,23 +47,22 @@ constructor(props) {
   }
 
   handleComplete(e) {
-    let complete = !this.state.completed //
+    let complete = !this.state.completed //toggles between the two options for completed and not completed and sets to state. setting complete to the opposite of what it is equal to in state.
 
     this.setState({
-      completed: complete //toggles between the two options for completed and not completed and sets to state
+      completed: complete //assigning the value to the opposite of what it was before
     })
 
-    this.props.onComplete(complete);
+    this.props.onComplete(complete);//taking that value and passing it into the oncomplate method
   }
 
   render() {
-    const { task } = this.props;
-    const { editing, value, completed } = this.state;
+    const { task } = this.props;// anytime we access something from props, we can do destructuring to not have to type this.props lll the time
+    const { editing, value, completed } = this.state;//same same
 
-    let colour = completed ? "grey" : "black";
+    let colour = completed ? "lightgrey" : "black";
 
     return (
-      // !article ? <FourOhFour /> : (
       <React.Fragment>
         <input onChange={ this.handleComplete } type="checkbox" checked={ completed }></input>
         { editing ?
@@ -76,10 +72,10 @@ constructor(props) {
           </form>
           :
           <p style={{color: colour}}>{ task.task }</p> }
+        <button onClick={ this.handleEdit } className="btn btn-outline-warning" disabled={ completed }>Edit</button>
         <button onClick={ this.handleDelete } className="btn btn-outline-danger">Delete</button>
-        <button onClick={ this.handleEdit } className="btn btn-outline-warning">Edit</button>
       </React.Fragment>
-    )
+    ) //if we're in editing mode display the value in the form, if not display the value in the p tag and disable the edit button.
   }
 }
 
