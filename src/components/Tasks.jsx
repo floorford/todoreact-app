@@ -47,7 +47,7 @@ class Tasks extends Component {
 
     return(//everything. setting the right methods on the right buttons. (methods are functions that live inside an object, and they use . notation)
       <React.Fragment>
-        <form style={{ textAlign: "center" }} onSubmit={ this.handleSubmit }>
+        <form style={{ textAlign: "center", marginBottom: "25px" }} onSubmit={ this.handleSubmit }>
           <label htmlFor="task" style={{ display: "block" }}>Add a Task: </label>
           <input id="task" onChange={ this.handleChange } value={ value }></input>
           <button className="btn btn-outline-success" style={{ margin: "4px" }}>Add</button>
