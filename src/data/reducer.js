@@ -41,12 +41,31 @@ const removeTask = (state, { id }) => {
   };
 };
 
+const completeTask = (state, {id, task, completed}) => {
+
+  let list = state.tasks.slice()
+
+  let newTasks = list.map(listItem => {
+    if (listItem.id === task.id) {
+      return task
+    } else {
+      return listItem
+    }
+  })
+
+  return {
+    ...state,
+    tasks: newTasks
+  };
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "addTask": return addTask(state, action);
     case "setTasks": return setTasks(state, action);
     case "editTask": return editTask(state, action);
     case "removeTask": return removeTask(state, action);
+    case "completeTask": return completeTask(state, action);
     default: return state;
   }
 };

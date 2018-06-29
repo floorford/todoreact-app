@@ -25,3 +25,10 @@ export const removeTask = (id) => {
     id: id
   };
 };
+
+export const completeTask = (task) => {
+  return {
+    type: "completeTask", // the type
+    task: task // {id: 1, task: "do a thing", completed: 1}
+  };
+};
