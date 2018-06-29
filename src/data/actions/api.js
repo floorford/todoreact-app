@@ -4,7 +4,7 @@ import { addTask, setTasks, editTask, removeTask, completeTask } from "./state";
 
 
 export const postTask = (task) => dispatch => {
-  axios.post("/tasks", { // send the submitted data from the input from
+  axios.post("/tasks", { // send the submitted data from the input form
     task: task, // task: is what the database is expecting to receive
   }).then(({ data }) => { //returns a json object with a data object inside
     const task = data.data; //getting the data object inside and assigning it to task
@@ -42,3 +42,8 @@ export const patchTaskComplete = (status, id) => dispatch => {
     dispatch(completeTask(task)); // sending that object to our state action
   });
 };
+
+//these are all API actions, that we name. they take argument and then are dispatched.
+//Axios is the middlewear we use to talk to our db from our app.
+//We pass it what it needs to know in order to do what it needs to do (arguments)
+//

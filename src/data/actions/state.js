@@ -32,3 +32,6 @@ export const completeTask = (task) => {
     task: task // {id: 1, task: "do a thing", completed: 1}
   };
 };
+
+//these all take what we got back from the api. All being called in the api actions page as the final dispatch
+//these have all been called from the apis, so that we can pass the information into our reducer so that it is able to read it and use it in its switch statement.

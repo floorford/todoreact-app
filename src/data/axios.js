@@ -6,3 +6,4 @@ export default axios.create({
     Accept: "application/json",
   },
 });
+//axios allows us to talk to the api

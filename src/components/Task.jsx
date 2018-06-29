@@ -68,12 +68,12 @@ constructor(props) {
         { editing ?
           <form onSubmit={ this.handleSubmit }>
             <input id="task" onChange={ this.handleChange } value={ value }></input>
-            <button className="btn btn-outline-info">Update</button>
+            <button style={{ margin: "4px" }} className="btn btn-outline-info">Update</button>
           </form>
           :
           <p style={{color: colour}}>{ task.task }</p> }
-        <button onClick={ this.handleEdit } className="btn btn-outline-warning" disabled={ completed }>Edit</button>
-        <button onClick={ this.handleDelete } className="btn btn-outline-danger">Delete</button>
+        <button onClick={ this.handleEdit } style={{ margin: "4px" }} className="btn btn-outline-warning" disabled={ completed }>Edit</button>
+        <button onClick={ this.handleDelete } style={{ margin: "4px" }} className="btn btn-outline-danger">Delete</button>
       </React.Fragment>
     ) //if we're in editing mode display the value in the form, if not display the value in the p tag and disable the edit button.
   }

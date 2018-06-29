@@ -50,7 +50,7 @@ class Tasks extends Component {
         <form onSubmit={ this.handleSubmit }>
           <label htmlFor="task">Create a Task</label>
           <input id="task" onChange={ this.handleChange } value={ value }></input>
-          <button className="btn btn-outline-success">Add</button>
+          <button className="btn btn-outline-success" style={{ margin: "4px" }}>Add</button>
         </form>
         { /* check there are articles to show */ }
         { tasks.length ?

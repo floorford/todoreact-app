@@ -1,9 +1,12 @@
+//this is where we create our functings that as passed into the switch statment
 const addTask = (state, {task}) => {
   return {
     ...state,
     tasks: state.tasks.concat(task)
   };
 };
+//they take state and whatever information we've passed into state action
+//sometimes take a copy of state and ALWAYS returns something with the state changed in some way
 
 const setTasks = (state, {tasks}) => {
   return {
@@ -11,6 +14,7 @@ const setTasks = (state, {tasks}) => {
     tasks: tasks
   };
 };
+//
 
 const editTask = (state, {id, task}) => {
 
