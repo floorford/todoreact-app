@@ -32,10 +32,7 @@ constructor(props) {
   }
 
   handleDelete(e) {
-    // let input = e.target.value
-    // this.setState({
-    //   value: input
-    // })
+    this.props.onDelete();
   }
 
   handleSubmit(e) {

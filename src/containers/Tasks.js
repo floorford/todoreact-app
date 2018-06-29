@@ -19,6 +19,7 @@ const mapDispatchToProps = dispatch => {
     // onSubmit is a function which dispatches an api action "postTask"
     onSubmit: data => dispatch(postTask(data)),
     onLoad: () => dispatch(getTasks()),
+
   };
 };
 // connect up mapStateToProps with the Tasks component

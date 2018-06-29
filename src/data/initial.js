@@ -1,5 +1,5 @@
 const initial = {
-  tasks: []
+  tasks: [],
 }
 
 export default initial;

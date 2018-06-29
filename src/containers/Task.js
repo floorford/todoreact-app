@@ -10,6 +10,7 @@ const mapDispatchToProps = (dispatch, {id}) => {
   return {
     // onUpdate is a function which dispatches an api action "patchTask"
     onUpdate: data => dispatch(patchTask(data, id)),
+    onDelete: () => dispatch(deleteTask(id)),
   };
 };
 // connect up mapStateToProps with the Tasks component

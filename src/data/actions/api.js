@@ -1,6 +1,6 @@
 import axios from "../axios";
 
-import { addTask, setTasks, editTask } from "./state";
+import { addTask, setTasks, editTask, removeTask } from "./state";
 
 
 export const postTask = (task) => dispatch => {
@@ -25,5 +25,11 @@ export const patchTask = (data, id) => dispatch => {
   }).then(({ data }) => {
     const task = data.data; //getting the data object inside and assigning it to task
     dispatch(editTask(task)); // sending that object to our state action
+  });
+};
+
+export const deleteTask = (id) => dispatch => {
+  axios.delete(`/tasks/${id}`).then(() => {
+    dispatch(removeTask(id)); // sending that object to our state action
   });
 };
