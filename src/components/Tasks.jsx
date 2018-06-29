@@ -32,16 +32,20 @@ class Tasks extends Component {
 
     let data = this.state.value;
     this.props.onSubmit(data);
+    this.setState({
+      value: ""
+    })
   }
 
   render() {
     let { tasks } = this.props;
+    const { value } = this.state;
 
     return(
       <React.Fragment>
         <form onSubmit={ this.handleSubmit }>
           <label htmlFor="task">Create a Task</label>
-          <input id="task" onChange={ this.handleChange }></input>
+          <input id="task" onChange={ this.handleChange } value={ value }></input>
           <button className="btn btn-outline-success">Add</button>
         </form>
         { /* check there are articles to show */ }
