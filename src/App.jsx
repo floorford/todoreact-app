@@ -12,7 +12,7 @@ import Tasks from "./containers/Tasks";
 const App = () => (
   <React.Fragment>
     { /* header should show on all pages */ }
-    <header><h1 style={{ textAlign: "center" }}>To Do List</h1></header>
+    <header><h1 style={{ textAlign: "center" }} className="jumbotron">To Do List</h1></header>
     <Tasks/>
   </React.Fragment>
 );

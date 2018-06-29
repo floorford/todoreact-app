@@ -64,7 +64,7 @@ constructor(props) {
 
     return (
       <React.Fragment>
-        <input style={{ display: "inline-block" }} onChange={ this.handleComplete } type="checkbox" checked={ completed }></input>
+          <input style={{ display: "inline-block" }} onChange={ this.handleComplete } type="checkbox" checked={ completed }></input>
         { editing ?
           <form style={{ display: "inline-block" }} onSubmit={ this.handleSubmit }>
             <input id="task" onChange={ this.handleChange } value={ value }></input>
